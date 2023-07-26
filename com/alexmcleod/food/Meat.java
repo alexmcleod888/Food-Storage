@@ -1,9 +1,13 @@
+//purpose: a subclass of food which deals with Meat data and functionality
+
 package com.alexmcleod.food;
 
 public class Meat extends Food {
     private String cut;
     private double weight;
 
+
+    //constructor
     public Meat(String newName, double newStorageTemp, String newExpiryDate, 
                 String newPackaging, String newCut, double newWeight) {
 
@@ -18,6 +22,7 @@ public class Meat extends Food {
         }
     }
 
+    //getters
     public String getCut() {
         return cut;
     }
@@ -26,6 +31,7 @@ public class Meat extends Food {
         return weight;
     }
 
+    //toStrings
     public String toStringLabelled() {
         String outputString = new String(super.toStringLabelled() + 
                                          "Cut: " + cut + ", " + 
@@ -33,6 +39,7 @@ public class Meat extends Food {
         return outputString;
     }
 
+    
     public String toString() {
         String outputString = new String(super.toString() + 
                                          cut + ", " +
@@ -43,6 +50,7 @@ public class Meat extends Food {
         return outputString;
     }
     
+    //setters
     public void setCut(String newCut) {
         cut = stringValidation(newCut, "cut");
     }

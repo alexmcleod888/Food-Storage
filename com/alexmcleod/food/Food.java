@@ -1,3 +1,5 @@
+//purpose: Food super class for shared functionality for all food
+
 package com.alexmcleod.food;
 
 import com.alexmcleod.util.*;
@@ -11,6 +13,7 @@ public abstract class Food {
     protected String foodCategory;
    
     /*need to check expiry */
+    //constructor
     public Food(String newName, double newTemp, 
                 String newExpiryDate, String newPackaging) {
 
@@ -21,6 +24,7 @@ public abstract class Food {
         packaging = stringValidation(newPackaging, "packaging");
     }
 
+    //getters
     public String getName() {
         return name;
     }
@@ -45,6 +49,7 @@ public abstract class Food {
         return foodCategory;
     }
 
+    //toString
     public String toStringLabelled() {
         String outputString = new String("Category: " + foodCategory + ", " +
                                          "Name: " + name + ", " + 
@@ -60,6 +65,7 @@ public abstract class Food {
         return foodString;
     }
 
+    //setters
     public void setName(String newName) {
         name = stringValidation(newName, "name");
     }
@@ -77,6 +83,7 @@ public abstract class Food {
         packaging = stringValidation(newPackaging, "packaging");
     }
 
+    //storage location checker
     private String checkStorageLocation(double newTemp){
         String whereToStore;
 
@@ -95,11 +102,13 @@ public abstract class Food {
         return whereToStore;
     }
 
+    //check the expiry date
     public boolean calcExpiry()
     {
         return expiryDate.isInThePast();
     }
 
+    //validations
     protected String stringValidation(String myString, String field) {
         
         if(myString.length() > 25) {

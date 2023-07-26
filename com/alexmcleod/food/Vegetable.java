@@ -1,9 +1,12 @@
+//purpose: a subclass of food which deals with fruit data and functionality
+
 package com.alexmcleod.food;
 
 public class Vegetable extends Food{
 
     private double weight;
     
+    //constructors
     public Vegetable(String newName, double newStorageTemp, String newExpiryDate, 
                      String newPackaging, double newWeight) {
         super(newName, newStorageTemp, newExpiryDate, newPackaging);
@@ -17,11 +20,12 @@ public class Vegetable extends Food{
     }
 
 
-
+    //getters
     public double getWeight() {
         return weight;
     }
 
+    //toStrings
     public String toStringLabelled() {
         String outputString = new String(super.toStringLabelled() + 
                                          "Weight: " + weight);
@@ -37,6 +41,7 @@ public class Vegetable extends Food{
         return outputString;
     }
     
+    //setter
     public void setWeight(double newWeight) {
         if(newWeight >= 0.2 && newWeight <= 5.0) {
             weight = newWeight;

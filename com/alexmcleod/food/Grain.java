@@ -1,9 +1,12 @@
+//purpose: a subclass of food which deals with Grain data and functionality
+
 package com.alexmcleod.food;
 
 public class Grain extends Food {
     private String type;
     private double volume;
 
+    //constructor
     public Grain(String newName, double newStorageTemp, String newExpiryDate, 
                  String newPackaging, String newType, double newVolume) {
 
@@ -18,6 +21,7 @@ public class Grain extends Food {
         }
     }
 
+    //getters
     public String getType() {
         return type;
     }
@@ -26,6 +30,7 @@ public class Grain extends Food {
         return volume;
     }
 
+    //toStrings
     public String toStringLabelled() {
         String outputString = new String(super.toStringLabelled() + 
                                          "Type: " + type + ", " + 
@@ -43,6 +48,7 @@ public class Grain extends Food {
         return outputString;
     }
 
+    //setters
     public void setType(String newType) {
         type = stringValidation(newType, "type");
     }

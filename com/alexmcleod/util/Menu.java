@@ -1,3 +1,5 @@
+//purpose: util class for outputting menu options and processing their inputs
+
 package com.alexmcleod.util;
 
 import com.alexmcleod.food.*;
@@ -10,10 +12,12 @@ public class Menu {
     private static boolean fileRead;
     private static Storage storage;
 
+    //purpose: methods for starting the program
     public static void run() {
         displayMenu();
     }
 
+    //purpose: for displaying user options
     private static void displayMenu() {
         boolean exit;
         int userInput = 0;
@@ -58,6 +62,7 @@ public class Menu {
         UserInputOutput.closeScanner();
     }
 
+    //purpose: for getting new food input and then adding to storage
     private static void addFood() throws Exception {
         if(fileRead == true) {
             Food newFood = UserInputOutput.foodUserInput(); 
@@ -68,6 +73,7 @@ public class Menu {
         }
     }
 
+    //purpose: for getting food selected by the user to remove and the removing
     private static void removeFood() throws Exception {
         if(fileRead == true) {
             int storageNum, foodNum;
@@ -80,6 +86,8 @@ public class Menu {
         }
     }
 
+    //purpose: for allowing a user to choose which storage location to 
+    //         display
     private static void displayFood() throws Exception {
         if(fileRead == true) {
             int storageNum = UserInputOutput.chooseStorageLocation();
@@ -91,6 +99,7 @@ public class Menu {
         }
     }
 
+    //purpose: for finding any expired food in storage
     private static void findExpired() throws Exception {
         if(fileRead == true) {
             storage.findExpired();
@@ -100,6 +109,7 @@ public class Menu {
         }
     }
 
+    //purpose: for running fileIO that read in storage from file
     private static void readStorage() throws Exception {
         if(fileRead == false) {
             String foodStorageFile = UserInputOutput.fileNameInput();
@@ -111,6 +121,7 @@ public class Menu {
         }
     }
 
+    //purpose: for running fileUI that writes storage to a file
     private static void writeStorage() throws Exception {
         if(fileRead == true) {
             String foodStorageFile = UserInputOutput.fileNameInput();

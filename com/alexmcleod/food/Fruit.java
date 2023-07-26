@@ -1,9 +1,12 @@
+//purpose: a subclass of food which deals with fruit data and functionality
+
 package com.alexmcleod.food;
 
 public class Fruit extends Food{
     private String type;
     private int numPieces;
 
+    //constructor
     public Fruit(String newName, double newStorageTemp, String newExpiryDate, 
                  String newPackaging, String newType, int newNumPieces) {
 
@@ -18,6 +21,7 @@ public class Fruit extends Food{
         }
     }
 
+    //getters
     public String getType() {
         return type;
     }
@@ -26,6 +30,8 @@ public class Fruit extends Food{
         return numPieces;
     }
 
+
+    //toStrings
     public String toStringLabelled() {
         String outputString = new String(super.toStringLabelled() + 
                                          "Type: " + type + ", " + 
@@ -43,6 +49,7 @@ public class Fruit extends Food{
         return outputString;
     }
     
+    //setters
     public void setType(String newType) {
         type = stringValidation(newType, "type");
     }

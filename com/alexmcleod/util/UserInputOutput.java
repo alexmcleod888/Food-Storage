@@ -1,3 +1,5 @@
+//purpose: A class for processing and outputting user input
+
 package com.alexmcleod.util;
 
 import com.alexmcleod.food.*;
@@ -8,6 +10,7 @@ public class UserInputOutput {
 
     private static final Scanner scanner = new Scanner(System.in);
 
+    //purpose: allows a user to add their own food item to storage
     public static Food foodUserInput() {
 
         int foodType, numPieces;
@@ -46,6 +49,7 @@ public class UserInputOutput {
         return newFoodItem;        
     }
 
+    //purpose: allows a user to choose an option from the menu
     public static int menuSelection() {
         int userInput;
         System.out.println(Strings.MENU_SELECTION);
@@ -53,6 +57,7 @@ public class UserInputOutput {
         return userInput;
     }
 
+    //purpose: allows a user to choose a storage location
     public static int chooseStorageLocation() {
         int storageNum;
         storageNum = Integer.parseInt(tryCatch(Strings.STORAGE_SELECTION, InputValidations.intValidation));
@@ -62,6 +67,8 @@ public class UserInputOutput {
         return storageNum;
     }
 
+    //purpose: allows a user to choose a storage location and then choose a food item from
+    //         storage
     public static int chooseFood(Storage storage, int storageNum) {
         int selectionNum;
         String storageString;
@@ -84,6 +91,7 @@ public class UserInputOutput {
         return selectionNum;
     }
 
+    //purpose: allows a user to choose a food item from a list of food items
     public static int foodSelect(Food[] storageArray, int numItems, String storageString) {
         int itemSelection;
         String prompt;
@@ -97,11 +105,13 @@ public class UserInputOutput {
         return itemSelection;
     }
 
+    //purpose: allows a user to input a storage area name.
     public static String fileNameInput() {
         String fileName = tryCatch("Enter the name of a storage file to read: ", InputValidations.stringValidation);
         return fileName;
     }
 
+    //purpose: a try catch block that surrounds a particular input validation method(the inputObj)
     public static String tryCatch(String outputMessage, UserInput inputObj) {
         boolean error;
         String userInput;
@@ -127,6 +137,7 @@ public class UserInputOutput {
 
      
 
+    //purpose: method for closing the scanner of a file
     public static void closeScanner() {
         scanner.close();
     }

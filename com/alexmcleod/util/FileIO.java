@@ -1,3 +1,5 @@
+//purpose: class for performing FileIO 
+
 package com.alexmcleod.util;
 
 import java.io.FileInputStream;
@@ -12,6 +14,7 @@ import com.alexmcleod.food.*;
 
 public class FileIO {
 
+    //for checking that imported file is formatted correctly
     public static void validateStorageFileFormat(String filename) throws Exception {
         FileInputStream fileStrm = null;
         InputStreamReader rdr;
@@ -47,6 +50,7 @@ public class FileIO {
         }  
     }
     
+    //purpose: for processing a file containing foods and putting them into storage
     public static boolean readStorage(String filename, Storage storage, boolean fileRead) {
         FileInputStream fileStrm = null;
         InputStreamReader rdr;
@@ -89,6 +93,7 @@ public class FileIO {
         return fileRead;
     }
 
+    //purpose: for processing the first 3 lines of the file containing storage sizes
     private static void processStorage(String fileLine, Storage storage) throws Exception {
         String thisToken = null;
         StringTokenizer strTok;
@@ -110,6 +115,8 @@ public class FileIO {
         }
     }
 
+    //purpose: for processing each line containing food information and placing them
+    //         into storage.
     private static void processFood(String fileLine, int lineNum, Storage storage) {
         String thisToken = null;
         StringTokenizer strTok;
@@ -179,6 +186,7 @@ public class FileIO {
         }
     }
 
+    //purpose: for writing current storage information to a file
     public static void writeStorage(String filename, Storage storage) {
         FileOutputStream fileStrm = null;
         PrintWriter pw;
@@ -207,6 +215,7 @@ public class FileIO {
         }    
     }
 
+    //purpose: for printing a particular line to a file
     private static void printStorageLocationItems(PrintWriter pw, Food[] foodArray, int numItems) {
         for(int i = 0; i < numItems; i++) {
             Food food = foodArray[i];
@@ -214,6 +223,8 @@ public class FileIO {
         }
     }
 
+    //purpose: for validating that first three lines of a file being processed is correctly
+    //         formatted
     private static void validateStorageFormat (String line, int lineNum) throws Exception{
         StringTokenizer strTok;
 
@@ -242,6 +253,7 @@ public class FileIO {
         }
     }
 
+    //purpose: for checking each line with food information is formatted correctly
     private static void validateFoodFormat (String line, int lineNum) throws Exception {
         StringTokenizer strTok;
         String newToken;

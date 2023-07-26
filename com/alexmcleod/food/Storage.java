@@ -1,3 +1,6 @@
+//purpose: store class containing arrays for different storage locations and methods for their
+//         functionality
+
 package com.alexmcleod.food;
 
 public class Storage {
@@ -8,6 +11,7 @@ public class Storage {
     int numItemsFridge;
     int numItemsFreezer;
 
+    //constructor
     public Storage() {
         pantry = null;
         fridge = null;
@@ -18,6 +22,7 @@ public class Storage {
 
     }
 
+    //purpose: for adding a new food to storage
     public void addFood(Food newFood) {
         
         if(newFood.getStorageArea().equals("pantry")) {
@@ -87,6 +92,7 @@ public class Storage {
         return itemRemoved;
     }
 
+    //purpose: for removing an item from storage
     public void removeFood(int storageNum, int foodNum) {
         String itemRemoved;
 
@@ -107,6 +113,7 @@ public class Storage {
         }
     }
 
+    //purpose: for finding any expired food
     public void findExpired() {
         int numExpiredItems = 0;
 
@@ -145,6 +152,7 @@ public class Storage {
         }
     }
 
+    //purpose: for getting an output string for items in a particular storage location
     public String storageLocationToString(int storageLocationNum) {
         String outputString = new String("");
 
@@ -163,6 +171,7 @@ public class Storage {
         return outputString;
     }
 
+    //setters
     public void setPantrySize(int newSize) {
         if(pantry == null){
             if(newSize < 0 || newSize <= 500){
@@ -206,6 +215,7 @@ public class Storage {
     }
 
 
+    //getters
     public Food[] getPantry() {
         return pantry;
     }
@@ -230,6 +240,8 @@ public class Storage {
         return numItemsFreezer;
     }
 
+
+    //purpose: for checking if storage area's are empty
     public boolean pantryCheckEmpty() {
         boolean isEmpty = false;
         if (numItemsPantry == 0) {
@@ -254,6 +266,7 @@ public class Storage {
         return isEmpty;
     }
 
+    //toStrings
     public String pantryToString() {
 
         String pantryString = new String("pantry" + " contents:");

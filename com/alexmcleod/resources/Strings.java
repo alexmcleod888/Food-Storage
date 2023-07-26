@@ -1,3 +1,4 @@
+//purpose: Strings used throughout the program
 package com.alexmcleod.resources;
 
 public class Strings {
