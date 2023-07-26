@@ -1,0 +1,7 @@
+Pantry, 400
+Freezer, 2
+Fridge, 2
+Meat, Beef, fillet, 1.3, -18.0, 01/09/2012, Vacuum packed
+Vegetable, Carrot, 2.0, 4.0, 01/08/2021, bag
+Fruit, Apple, golden delicious, 6, 3.0, 01/07/2020, loose
+Grain, Wheat, Weetbix, 2.0, 18.0, 01/10/2019, box

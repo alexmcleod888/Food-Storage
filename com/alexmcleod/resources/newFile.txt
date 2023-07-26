@@ -1,0 +1,7 @@
+Pantry, 2
+Fridge, 2
+Freezer, 2
+Grain, Wheat, Weetbix, 2.0, 18.0, 1/10/2026, box
+Vegetable, Carrot, 2.0, 4.0, 1/8/2029, bag
+Fruit, Apple, golden delicious, 6, 3.0, 1/7/2025, loose
+Meat, Beef, fillet, 1.3, -18.0, 1/9/2034, Vacuum packed
