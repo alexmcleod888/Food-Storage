@@ -269,7 +269,7 @@ public class Storage {
     //toStrings
     public String pantryToString() {
 
-        String pantryString = new String("pantry" + " contents:");
+        String pantryString = new String("Pantry" + " contents (storage limit: "+ pantry.length +" food items):");
         for(int i = 0; i < numItemsPantry; i++) { 
             String newString = (i + 1) + ". " + pantry[i].toStringLabelled();
             pantryString = pantryString + "\n" + newString;
@@ -279,7 +279,7 @@ public class Storage {
 
     public String fridgeToString() {
 
-        String fridgeString = new String("fridge" + " contents:");
+        String fridgeString = new String("Fridge" + " contents (storage limit: "+ fridge.length +" food items):");
         for(int i = 0; i < numItemsFridge; i++) { 
             String newString = (i + 1) + ". " + fridge[i].toStringLabelled();
             fridgeString = fridgeString + "\n" + newString;
@@ -289,7 +289,7 @@ public class Storage {
 
     public String freezerToString() {
 
-        String freezerString = new String("freezer" + " contents:");
+        String freezerString = new String("Freezer" + " contents (storage limit: "+ freezer.length +" food items):");
         for(int i = 0; i < numItemsFreezer; i++) { 
             String newString = (i + 1) + ". " + freezer[i].toStringLabelled();
             freezerString = freezerString + "\n" + newString;

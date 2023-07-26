@@ -29,7 +29,7 @@ public class Menu {
         while(exit == false) {
             try {
                 userInput = UserInputOutput.menuSelection();
-    
+                fileReadCheck(userInput);   
                 if(userInput == 1) {
                     addFood();
                 }
@@ -53,7 +53,7 @@ public class Menu {
                 }       
                 else {
                     throw new IllegalArgumentException("Error: input must be from 1 to 7");
-                }         
+                }       
             }
             catch(Exception e) {
                 System.out.println(e.getMessage());
@@ -63,50 +63,30 @@ public class Menu {
     }
 
     //purpose: for getting new food input and then adding to storage
-    private static void addFood() throws Exception {
-        if(fileRead == true) {
-            Food newFood = UserInputOutput.foodUserInput(); 
-            storage.addFood(newFood);
-        }
-        else {
-            throw new Exception("Error: file storage must be read");
-        }
+    private static void addFood() throws Exception {     
+        Food newFood = UserInputOutput.foodUserInput(); 
+        storage.addFood(newFood);
     }
 
     //purpose: for getting food selected by the user to remove and the removing
     private static void removeFood() throws Exception {
-        if(fileRead == true) {
-            int storageNum, foodNum;
-            storageNum = UserInputOutput.chooseStorageLocation();
-            foodNum = UserInputOutput.chooseFood(storage, storageNum);
-            storage.removeFood(storageNum, foodNum);
-        }
-        else {
-            throw new Exception("Error: file storage must be read");
-        }
+        int storageNum, foodNum;
+        storageNum = UserInputOutput.chooseStorageLocation();
+        foodNum = UserInputOutput.chooseFood(storage, storageNum);
+        storage.removeFood(storageNum, foodNum);
     }
 
     //purpose: for allowing a user to choose which storage location to 
     //         display
     private static void displayFood() throws Exception {
-        if(fileRead == true) {
-            int storageNum = UserInputOutput.chooseStorageLocation();
-            String storageLocationString = storage.storageLocationToString(storageNum);
-            System.out.println(storageLocationString);
-        }
-        else {
-            throw new Exception("Error: file storage must be read");
-        }
+        int storageNum = UserInputOutput.chooseStorageLocation();
+        String storageLocationString = storage.storageLocationToString(storageNum);
+        System.out.println(storageLocationString);
     }
 
     //purpose: for finding any expired food in storage
     private static void findExpired() throws Exception {
-        if(fileRead == true) {
-            storage.findExpired();
-        }
-        else {
-            throw new Exception("Error: file storage must be read");
-        }
+        storage.findExpired();
     }
 
     //purpose: for running fileIO that read in storage from file
@@ -123,12 +103,13 @@ public class Menu {
 
     //purpose: for running fileUI that writes storage to a file
     private static void writeStorage() throws Exception {
-        if(fileRead == true) {
-            String foodStorageFile = UserInputOutput.fileNameInput();
-            FileIO.writeStorage("./com/alexmcleod/resources/" + foodStorageFile, storage);
-        }
-        else {
+        String foodStorageFile = UserInputOutput.fileNameInput();
+        FileIO.writeStorage("./com/alexmcleod/resources/" + foodStorageFile, storage);           
+    }
+
+    private static void fileReadCheck(int userInput) throws Exception {
+        if(fileRead != true && userInput != 5 && (userInput >= 1 && userInput <= 6)) {
             throw new Exception("Error: file storage must be read");
-        }                
+        }    
     }
 }
